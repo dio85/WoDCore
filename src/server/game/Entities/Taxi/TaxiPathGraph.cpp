@@ -196,9 +196,11 @@ void TaxiPathGraph::AddVerticeAndEdgeFromNodeInfo(TaxiNodesEntry const* p_From, 
             if (l_Map1 != l_Map2)
                 continue;
 
-            l_TotalDist += std::sqrt(std::pow(l_Pos2X - l_Pos1X, 2) +
-                                     std::pow(l_Pos2Y - l_Pos1Y, 2) +
-                                     std::pow(l_Nodes[l_I]->z - l_Nodes[l_I - 1]->z, 2));
+            l_TotalDist += static_cast<float>(std::sqrt(
+                std::pow(l_Pos2X - l_Pos1X, 2) +
+                std::pow(l_Pos2Y - l_Pos1Y, 2) +
+                std::pow(l_Nodes[l_I]->z - l_Nodes[l_I - 1]->z, 2)
+            ));
         }
 
         uint32 l_Dist = uint32(l_TotalDist);
