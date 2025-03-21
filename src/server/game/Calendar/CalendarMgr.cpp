@@ -102,8 +102,8 @@ void CalendarMgr::LoadFromDB()
     sLog->outInfo(LOG_FILTER_SERVER_LOADING, ">> Loaded %u calendar events", l_Count);
     l_Count = 0;
 
-    //                                                       0   1      2        3       4       5           6     7
-    if (QueryResult l_Result = CharacterDatabase.Query("SELECT id, event, invitee, sender, status, statustime, rank, text FROM calendar_invites"))
+    //                                                          0   1        2        3       4       5           6     7
+    if (QueryResult l_Result = CharacterDatabase.Query("SELECT id, event, invitee, sender, status, statustime, `rank`, text FROM calendar_invites"))
     {
         do
         {
